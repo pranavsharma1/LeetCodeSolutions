@@ -1,0 +1,38 @@
+class Solution {
+    public int singleNumber(int[] nums) {
+        
+        HashMap<Integer, Integer> map = new HashMap<>();
+           
+        for(int i = 0; i < nums.length; i++){
+            
+            int counter = 0;
+            
+            if(!map.containsKey(nums[i])){
+                
+                map.put(nums[i],1);
+                
+            }
+            
+            else{
+                
+                map.put(nums[i], counter++);
+            }
+        }
+        
+        Set<Map.Entry<Integer, Integer>> s = map.entrySet();
+        
+        int number = 0;
+        
+        for(Map.Entry<Integer, Integer> it : s){
+            
+            if(it.getValue() == 1){
+                
+                number = it.getKey();
+            }
+            
+        }
+        
+        return number;
+        
+    }
+}
