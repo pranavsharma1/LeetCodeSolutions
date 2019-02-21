@@ -1,0 +1,37 @@
+class Solution {
+    public int[][] flipAndInvertImage(int[][] A) {
+        
+        int inputLen = A.length;
+        int subLen = A[0].length;
+    
+        for(int i = 0; i < inputLen; i++){
+            for(int j = 0; j < subLen; j++){
+                
+                if(A[i][j] == 0){
+                    
+                    A[i][j] = 1;
+                }
+                else{ 
+                    
+                    A[i][j] = 0;
+                }
+                
+            }
+        }
+        
+        int temp;
+        for(int i = 0; i < inputLen; i++){
+            for(int j = 0; j < subLen/2; j++){
+                
+                temp = A[i][j];
+                
+                A[i][j] = A[i][subLen-1-j];
+                
+                A[i][subLen-1-j] = temp;
+                  
+            }
+        }
+        
+        return A;
+    }
+}
