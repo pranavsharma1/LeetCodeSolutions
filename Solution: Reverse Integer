@@ -1,0 +1,14 @@
+class Solution {
+    public int reverse(int x) {
+        
+        long revNum = 0;
+        long input = x;
+        
+        while(input!=0){
+            revNum = revNum * 10 + input % 10;
+            input  = input/10;
+        }
+            
+        return revNum > Integer.MAX_VALUE || revNum < Integer.MIN_VALUE ? 0 :(int) revNum;
+    }
+}
