@@ -1,0 +1,39 @@
+class Solution {
+
+    public boolean isSelfDividing(int num){
+        
+        int t = num;
+        boolean b = true;
+        
+        while(t > 0){
+            
+            int r = t % 10;
+            
+            if(r == 0){
+                return false;
+            }
+            else if(num % r == 0){
+                    t = t/10;
+                    b = b && true;
+                }
+            else{
+                
+                return false;
+            }
+        }    
+        return b;
+    }
+    
+    public List<Integer> selfDividingNumbers(int left, int right) {
+        
+        List<Integer> result = new ArrayList<Integer>();
+        
+        for(int i = left; i <= right;i++){
+            boolean sd = isSelfDividing(i);
+            if(sd){
+                result.add(i);
+            }
+        }
+        return result;
+    } 
+}
